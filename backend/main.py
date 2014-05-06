@@ -6,7 +6,7 @@ from google.appengine.api import mail, memcache
 from google.appengine.ext import deferred
 
 import stripe
-import model
+import model, wp_import
 
 import config_NOCOMMIT
 
@@ -143,6 +143,7 @@ app = webapp2.WSGIApplication([
   ('/total', GetTotalHandler),
   ('/stripe_public_key', GetStripePublicKeyHandler),
   ('/pledge.do', PledgeHandler),
+  ('/import.do', wp_import.ImportHandler),
   ('/campaigns/may-one', EmbedHandler),
   ('/campaigns/may-one/', EmbedHandler)
 ], debug=False)
